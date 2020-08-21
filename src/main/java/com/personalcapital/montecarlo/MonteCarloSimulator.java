@@ -17,7 +17,7 @@ public class MonteCarloSimulator {
      */
     public void comparePortfolios(int numberSimulations, int numberYears, double initialValue, List<Portfolio> portfolios) {
         Integer portfolioId = 1;
-        for( Portfolio portfolio: portfolios) {
+        for(Portfolio portfolio: portfolios) {
             List<Double> portfolio1Results = runSimulation(numberSimulations, numberYears, initialValue, portfolio.getMean(), portfolio.getRisk());
             portfolio.setLastSimulation(new SimulationResult(portfolio1Results, numberSimulations));
             Double median1 = portfolio.getLastSimulation().getMedian();
