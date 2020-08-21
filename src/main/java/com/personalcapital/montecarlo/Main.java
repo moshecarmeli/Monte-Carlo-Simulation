@@ -1,3 +1,5 @@
+package com.personalcapital.montecarlo;
+
 import java.util.ArrayList;
 
 /**

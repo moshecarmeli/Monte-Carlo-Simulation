@@ -1,3 +1,5 @@
+package com.personalcapital.montecarlo;
+
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * This test suite verifies that the position selected for median/best/worst are what we expect
  */
-public class SimulationResultTests {
+class SimulationResultTests {
     @Test
     void verifyMedianBestAndWorst() {
         List<Double> simulatedBalances = IntStream.range(0,10).asDoubleStream().boxed().collect(Collectors.toList());

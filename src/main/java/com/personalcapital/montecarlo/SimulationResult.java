@@ -1,3 +1,5 @@
+package com.personalcapital.montecarlo;
+
 import java.util.List;
 
 /**
@@ -17,14 +19,14 @@ public class SimulationResult {
      * Function to get the result representing the worst of the top 10% outcomes
      */
     public Double getTop10() {
-        return this.simulationResults.get(Math.round(this.numberOfSimulations * 9/10) - 1);
+        return this.simulationResults.get((int) (Math.round(this.numberOfSimulations * 9/10.0) - 1));
     }
 
     /**
      * Function to get the result representing the best of the worst 10% outcomes
      */
     public Double getWorst10() {
-        return this.simulationResults.get(Math.round(this.numberOfSimulations * 1/10) - 1);
+        return this.simulationResults.get((int) (Math.round(this.numberOfSimulations * 1/10.0) - 1));
     }
 
     /**
@@ -34,10 +36,10 @@ public class SimulationResult {
      */
     public Double getMedian() {
         if (numberOfSimulations % 2 != 0) {
-            return this.simulationResults.get((int) Math.floor(this.numberOfSimulations/2));
+            return this.simulationResults.get((int) Math.floor(this.numberOfSimulations/2.0));
         } else {
-            return (this.simulationResults.get((int)Math.floor(this.numberOfSimulations/2) - 1) +
-                    this.simulationResults.get((int)Math.floor(this.numberOfSimulations/2)))/2;
+            return (this.simulationResults.get((int)Math.floor(this.numberOfSimulations/2.0) - 1) +
+                    this.simulationResults.get((int)Math.floor(this.numberOfSimulations/2.0)))/2;
         }
     }
 }

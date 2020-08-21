@@ -1,3 +1,5 @@
+package com.personalcapital.montecarlo;
+
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -42,7 +44,7 @@ public class MonteCarloSimulator {
                     // and then adjusted for inflation each year ((1 + ROI)/(1 + inflation)) - 1
                     Double portfolioValue = initialValue;
                     for (int i = 0; i < numberYears; i++) {
-                        Double nextGaussian = this.randomGenerator.nextGaussian();
+                        Double nextGaussian = randomGenerator.nextGaussian();
                         Double returnOnInvestment = ((nextGaussian * risk) + mean) / 100;
                         returnOnInvestment = ((1 + returnOnInvestment) / (1 + INFLATION_RATE)) - 1;
                         portfolioValue = (1 + returnOnInvestment) * portfolioValue;

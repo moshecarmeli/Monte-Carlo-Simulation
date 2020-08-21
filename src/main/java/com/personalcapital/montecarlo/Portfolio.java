@@ -1,3 +1,5 @@
+package com.personalcapital.montecarlo;
+
 /**
  * Class to model the risk and mean of the portfolio. Once a simulation is run, it can be saved into the lastSimulation
  * instance variable
