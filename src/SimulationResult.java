@@ -33,7 +33,7 @@ public class SimulationResult {
      * Otherwise this will be the average of the two middle elements.
      */
     public Double getMedian() {
-        if (numberOfSimulations % 2 == 0) {
+        if (numberOfSimulations % 2 != 0) {
             return this.simulationResults.get((int) Math.floor(this.numberOfSimulations/2));
         } else {
             return (this.simulationResults.get((int)Math.floor(this.numberOfSimulations/2) - 1) +
