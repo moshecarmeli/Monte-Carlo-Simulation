@@ -17,14 +17,14 @@ public class SimulationResult {
      * Function to get the result representing the worst of the top 10% outcomes
      */
     public Double getTop10() {
-        return this.simulationResults.get(Math.round(this.numberOfSimulations * 9/10));
+        return this.simulationResults.get(Math.round(this.numberOfSimulations * 9/10) - 1);
     }
 
     /**
      * Function to get the result representing the best of the worst 10% outcomes
      */
     public Double getWorst10() {
-        return this.simulationResults.get(Math.round(this.numberOfSimulations * 1/10));
+        return this.simulationResults.get(Math.round(this.numberOfSimulations * 1/10) - 1);
     }
 
     /**
