@@ -1,4 +1,4 @@
-# Monte-Carlo-Simulation
+# MonteCarlo-Simulation
 Investment Portfolio Monte Carlo Simulation for Personal Capital
 
 Example Printout of Application Run:
