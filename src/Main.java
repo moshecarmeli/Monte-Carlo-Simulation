@@ -1,5 +1,5 @@
 /**
- * Main Method which willinstantiate necessary classes and run the MonteCarlo Simulation against the proposed
+ * Main Method which will instantiate necessary classes and run the MonteCarlo Simulation against the proposed
  * portfolios. This will output the performance of the portfolios after the given years (20), and number of
  * simulations (10000)
  */
