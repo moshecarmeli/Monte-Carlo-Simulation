@@ -13,22 +13,18 @@ public class MonteCarloSimulator {
     /**
      * Runs the simulation for each portfolio and then prints out the results
      */
-    public void comparePortfolios(int numberSimulations, int numberYears, double initialValue, Portfolio portfolio1, Portfolio portfolio2) {
-        List<Double> portfolio1Results = runSimulation(numberSimulations, numberYears, initialValue, portfolio1.getMean(), portfolio1.getRisk());
-        portfolio1.setLastSimulation(new SimulationResult(portfolio1Results, numberSimulations));
-        Double median1 = portfolio1.getLastSimulation().getMedian();
-        Double best10P1 = portfolio1.getLastSimulation().getTop10();
-        Double worst10P1 = portfolio1.getLastSimulation().getWorst10();
-        System.out.println(String.format("Results for Portfolio1:\n\tMedian: %.2f\n\tBest 10: %.2f\n\tWorst 10: %.2f\n\tHistoric Risk: %.4f\n\tMean %.4f",
-                median1, best10P1, worst10P1, portfolio1.getRisk(), portfolio1.getMean()));
-
-        List<Double> portfolio2Results = runSimulation(numberSimulations, numberYears, initialValue, portfolio2.getMean(), portfolio2.getRisk());
-        portfolio2.setLastSimulation(new SimulationResult(portfolio2Results, numberSimulations));
-        Double median2 = portfolio2.getLastSimulation().getMedian();
-        Double best10P2 = portfolio2.getLastSimulation().getTop10();
-        Double worst10P2 = portfolio2.getLastSimulation().getWorst10();
-        System.out.println(String.format("Results for Portfolio2:\n\tMedian: %.2f\n\tBest 10: %.2f\n\tWorst 10: %.2f\n\tHistoric Risk: %.4f\n\tMean %.4f",
-                median2, best10P2, worst10P2, portfolio2.getRisk(), portfolio2.getMean()));
+    public void comparePortfolios(int numberSimulations, int numberYears, double initialValue, List<Portfolio> portfolios) {
+        Integer portfolioId = 1;
+        for( Portfolio portfolio: portfolios) {
+            List<Double> portfolio1Results = runSimulation(numberSimulations, numberYears, initialValue, portfolio.getMean(), portfolio.getRisk());
+            portfolio.setLastSimulation(new SimulationResult(portfolio1Results, numberSimulations));
+            Double median1 = portfolio.getLastSimulation().getMedian();
+            Double best10P1 = portfolio.getLastSimulation().getTop10();
+            Double worst10P1 = portfolio.getLastSimulation().getWorst10();
+            System.out.println(String.format("Results for Portfolio%d:\n\tMedian: %.2f\n\tBest 10: %.2f\n\tWorst 10: %.2f\n\tHistoric Risk: %.4f\n\tMean %.4f",
+                    portfolioId, median1, best10P1, worst10P1, portfolio.getRisk(), portfolio.getMean()));
+            portfolioId += 1;
+        }
     }
 
     /**
